@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <script> 
+
+    //Function to get user input and store it in string variable playerSelection
+
+    function getPlayerChoice() {
+
+        //input a string varible playerSelection to get rock/paper/scissor from user.
+        let playerSelection = ""
+        playerSelection=prompt("Enter Rock, Paper or Scissors: ")
+        
+        //make it case-sensitive by capitalizing
+        playerSelection=playerSelection.charAt(0).toLocaleUpperCase()+playerSelection.slice(1,playerSelection.length).toLocaleLowerCase();
+
+        return playerSelection;
+    }
+
+    //function getComputerChoice () to randomly return a string value computerChoice from rock/paper/scissor.
+    function getComputerChoice() {
+        
+        let computeChoice="";
+        let choice=-1;
+        choice=Math.floor(Math.random()*3);
+        if (choice==1) {
+            computeChoice="Rock";
+        } else if (choice==1) {
+            computeChoice="Paper";
+        } else {
+            computeChoice="Scissors";
+        }
+        return computeChoice;
+
+    }
+
+    //Function to do below
+    //compare playerSelection with computeChoice and update winner in the function playRound
+    //if users loses print "You Lose! Paper beats Rock", if win "You Win! Rock beats Scissor"
+    //create function game(), from where playRound should be called 5 times in loop
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
