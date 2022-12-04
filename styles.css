@@ -1,4 +1,13 @@
-button {
-    color: rgba(102, 175, 0, 0.592);
-    background-color: black;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }

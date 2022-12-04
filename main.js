@@ -1,20 +1,30 @@
 
     //Function to get user input and store it in string variable playerSelection
 
-    // function getPlayerChoice() {
+    let winner=0;
+    function getPlayerChoice() {
 
-    //     //input a string varible playerSelection to get rock/paper/scissor from user.
-    //     let playerSelection = ""
-    //     //playerSelection=prompt("Enter Rock, Paper or Scissors: ")
+        //input a string varible playerSelection to get rock/paper/scissor from user.
+        let playerSelection = "";
+        //playerSelection=prompt("Enter Rock, Paper or Scissors: ")
         
-    //     //make it case-sensitive by capitalizing
-        
-    //     //playerSelection=playerSelection.charAt(0).toLocaleUpperCase()+playerSelection.slice(1,playerSelection.length).toLocaleLowerCase();
+        //make it case-sensitive by capitalizing
+    
+        //playerSelection=playerSelection.charAt(0).toLocaleUpperCase()+playerSelection.slice(1,playerSelection.length).toLocaleLowerCase();
+        let rock=document.getElementById("Rock");
+        let paper=document.getElementById("Paper");
+        let scissor=document.getElementById("Scissor");
 
-    //     let 
-
-    //     return playerSelection;
-    // }
+        rock.addEventListener("click", function() {
+            playRound("Rock", getComputerChoice());
+        });
+        paper.addEventListener("click", function() {
+            playRound("Paper", getComputerChoice());
+        });
+        scissor.addEventListener("click", function() {
+            playRound("Scissors", getComputerChoice());
+        });
+    }
 
     //function getComputerChoice () to randomly return a string value computerChoice from rock/paper/scissor.
     function getComputerChoice() {
@@ -46,6 +56,7 @@
         if (playerSelection=="Rock") {
             if (computerChoice=="Scissors") {
                 didUserWin=1;
+                winner=winner+1;
                 str2="Rock beats Scissors";
                 }
             else {
@@ -60,6 +71,7 @@
                 }
             else {
                 didUserWin=1;
+                winner=winner+1;
                 str2="Paper beats Rock";
             }
         }
@@ -70,6 +82,7 @@
                 }
             else {
                 didUserWin=1;
+                winner=winner+1;
                 str2="Scissor beats Paper";
             }
         }
@@ -79,27 +92,19 @@
         str1="You Win! ";
     else 
         str1="You Lose! ";
-    console.log(str1+str2);
-
-    return didUserWin;
+    
+    str3=", current score :";
+    game=document.getElementById("game");
+    game.textContent=str1+str2+str3+winner;
+    
+    if (winner==5){
+        win=document.getElementById("winner");
+        win.textContent="You won the war with computer by 5 point";
     }
-
+    return null;
+    }
       //create function game(), from where playRound should be called 5 times in loop
     function game() {
-        let i=0;
-        let winner=0
-        
-        for (i=0;i<5;i++){
-            let a=playRound(getPlayerChoice(),getComputerChoice());
-            if (a==1) 
-                winner++;
-            else 
-                winner--;
-            
+            let a=getPlayerChoice();
         }
-
-        if (winner>0){
-            console.log(`You won the war with computer by ${winner} points!`);
-        }
-    }
     game();
